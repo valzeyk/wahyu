@@ -339,7 +339,7 @@ module.exports = haruka = async (haruka, mek) => {
 				
 				// antilink
                 if (manti.includes("://chat.whatsapp.com/")){
-		        if (!(isGroup || isAntiLink || isGroupAdmins)) return
+		        if (!(mek.key.fromMe || isGroup || isAntiLink || isGroupAdmins)) return
 		        var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		        await haruka.sendMessage(from, `Hmm maap nih gua kick, dilarang share link di group ini`, text , {quoted: mek})
 		        haruka.groupRemove(from, [kic]).catch((e)=>{reply(`Bot Harus Jadi Admin`)})
